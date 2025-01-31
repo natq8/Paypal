@@ -205,7 +205,26 @@
         </div>
 
         <!-- Amount Input -->
-        <div class="amount-input">
+<div class="amount-input">
+    <span class="dollar-sign">$</span>
+    <input type="text" id="amount" placeholder="0.00" maxlength="12" oninput="formatAmount(this)">
+    <select style="font-size: 1.2em; padding: 5px; margin-left: 10px;">
+        <option value="CAD">CAD</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+    </select>
+</div>
+
+<!-- What's This For? Input -->
+<div style="margin-top: 20px;">
+    <label for="message" style="display: block; font-weight: bold; margin-bottom: 5px;">What's this for?</label>
+    <textarea id="message" rows="3" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+</div>
+
+<!-- User Agreement Text -->
+<p style="font-size: 0.9em; color: #777; margin-top: 10px;">
+    For more information, please read our <a href="#" style="color: #0070ba;">user agreement</a>.
+</p>
             <span class="dollar-sign">$</span>
             <input type="text" id="amount" placeholder="0.00" maxlength="12" oninput="formatAmount(this)">
         </div>
