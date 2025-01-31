@@ -92,22 +92,23 @@
             color: #777;
             margin: 0;
         }
+        /* Amount Input */
         .amount-input {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between; /* Align items with space between them */
             margin-top: 20px;
         }
         .amount-input .dollar-sign {
             font-size: 2em;
             color: #000000;
-            margin-right: 10px;
+            margin-right: 5px; /* Small gap between $ and input */
         }
         .amount-input input {
             font-size: 2em;
-            text-align: center;
+            text-align: left; /* Align text to the left */
             border: none; /* Removed underline */
-            width: 60%;
+            width: auto; /* Adjust width dynamically */
             outline: none;
             color: black; /* Changed font color to black */
         }
@@ -209,8 +210,10 @@
             </div>
             <!-- Amount Input -->
             <div class="amount-input">
-                <span class="dollar-sign">$</span>
-                <input type="text" id="amount" placeholder="0.00" maxlength="12" oninput="formatAmount(this)">
+                <div style="display: flex; align-items: center;">
+                    <span class="dollar-sign">$</span>
+                    <input type="text" id="amount" placeholder="0.00" maxlength="12" oninput="formatAmount(this)">
+                </div>
                 <select style="font-size: 1.2em; padding: 5px; margin-left: 10px;">
                     <option value="CAD">CAD</option>
                     <option value="USD">USD</option>
@@ -241,7 +244,8 @@
     </footer>
     <!-- Disclaimer -->
     <p style="font-size: 0.9em; color: #777; text-align: center; margin-top: 20px;">
-        Disclaimer:
+        Disclaimer: This is a harmless prank website created for entertainment purposes only. 
+        No real transactions or personal data are involved.
     </p>
     <!-- JavaScript for Formatting -->
     <script>
