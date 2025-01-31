@@ -207,7 +207,7 @@
         <!-- Amount Input -->
         <div class="amount-input">
             <span class="dollar-sign">$</span>
-            <input type="text" placeholder="0.00" maxlength="12">
+            <input type="text" id="amount" placeholder="0.00" maxlength="12" oninput="formatAmount(this)">
         </div>
 
         <!-- Next Button -->
@@ -216,7 +216,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2023 PayPal. All rights reserved.</p>
+        <p>© 2025 PayPal. All rights reserved.</p>
         <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
 
@@ -224,5 +224,31 @@
     <p style="font-size: 0.9em; color: #777; text-align: center; margin-top: 20px;">
         Disclaimer: Do not use for.
     </p>
+
+    <script>
+        function formatAmount(input) {
+            // Remove any non-numeric characters except for the decimal point
+            let value = input.value.replace(/[^0-9.]/g, '');
+    
+            // Split the value into dollars and cents
+            let parts = value.split('.');
+            let dollars = parts[0] || '0'; // Default to 0 if no dollars are entered
+            let cents = parts[1] || '00'; // Default to 00 if no cents are entered
+    
+            // Ensure cents are two digits
+            if (cents.length === 1) {
+                cents += '0'; // Add a zero if only one digit is entered
+            } else if (cents.length > 2) {
+                cents = cents.substring(0, 2); // Truncate to two digits if more are entered
+            }
+    
+            // Combine dollars and cents
+            let formattedValue = `${dollars}.${cents}`;
+    
+            // Update the input field with the formatted value
+            input.value = formattedValue;
+        }
+    </script>
+    
 </body>
 </html>
