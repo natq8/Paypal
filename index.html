@@ -139,6 +139,13 @@
         .cancel-button:hover {
             background-color: #ccc;
         }
+        /* Bordered Box */
+        .bordered-box {
+            border: 1px solid #ddd; /* Gray border */
+            border-radius: 8px; /* Rounded corners */
+            padding: 20px; /* Inner spacing */
+            margin-bottom: 20px; /* Space below the box */
+        }
         /* Footer */
         footer {
             background-color: #003087;
@@ -179,30 +186,33 @@
 
     <!-- Main Content -->
     <div class="container">
-        <!-- Profile Section -->
-        <div class="profile-section">
-            <img src="https://via.placeholder.com/60" alt="Profile Picture">
-            <div class="details">
-                <div class="name">John Doe</div>
-                <div class="username">@johndoe</div>
+        <!-- Bordered Box -->
+        <div class="bordered-box">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <img src="https://via.placeholder.com/60" alt="Profile Picture">
+                <div class="details">
+                    <div class="name">John Doe</div>
+                    <div class="username">@johndoe</div>
+                </div>
             </div>
-        </div>
 
-        <!-- Amount Input -->
-        <div class="amount-input">
-            <span class="dollar-sign">$</span>
-            <input type="text" id="amount" placeholder="0.00" maxlength="12" oninput="formatAmount(this)">
-            <select style="font-size: 1.2em; padding: 5px; margin-left: 10px;">
-                <option value="CAD">CAD</option>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-            </select>
-        </div>
+            <!-- Amount Input -->
+            <div class="amount-input">
+                <span class="dollar-sign">$</span>
+                <input type="text" id="amount" placeholder="0.00" maxlength="12" oninput="formatAmount(this)">
+                <select style="font-size: 1.2em; padding: 5px; margin-left: 10px;">
+                    <option value="CAD">CAD</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                </select>
+            </div>
 
-        <!-- What's This For? Input -->
-        <div style="margin-top: 20px;">
-            <label for="message" style="display: block; font-weight: bold; margin-bottom: 5px;">What's this for?</label>
-            <textarea id="message" rows="3" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+            <!-- What's This For? Input -->
+            <div style="margin-top: 20px;">
+                <label for="message" style="display: block; font-weight: bold; margin-bottom: 5px;">What's this for?</label>
+                <textarea id="message" rows="3" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+            </div>
         </div>
 
         <!-- User Agreement Text -->
