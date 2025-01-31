@@ -12,7 +12,6 @@
             margin: 0;
             padding: 0;
         }
-
         /* Top Bar */
         .top-bar {
             display: flex;
@@ -60,27 +59,6 @@
             font-size: 0.9em;
             cursor: pointer;
         }
-
-        /* Header */
-        header {
-            display: flex;
-            align-items: center;
-            background-color: #ffffff;
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
-        }
-        header .back-arrow {
-            font-size: 1.5em;
-            color: #0070ba;
-            cursor: pointer;
-        }
-        header .title {
-            flex-grow: 1;
-            text-align: center;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
         /* Main Content */
         .container {
             background: white;
@@ -147,7 +125,20 @@
         .next-button:hover {
             background-color: #005c99;
         }
-
+        .cancel-button {
+            background-color: #ddd;
+            color: #333;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+        .cancel-button:hover {
+            background-color: #ccc;
+        }
         /* Footer */
         footer {
             background-color: #003087;
@@ -178,7 +169,6 @@
                 <div>Help</div>
             </div>
         </div>
-
         <!-- Right Side -->
         <div class="actions">
             <div class="icon">🔔</div>
@@ -186,12 +176,6 @@
             <div class="logout">LOG OUT</div>
         </div>
     </div>
-
-    <!-- Header -->
-    <header>
-        <div class="back-arrow">←</div>
-        <div class="title">Send Money</div>
-    </header>
 
     <!-- Main Content -->
     <div class="container">
@@ -205,32 +189,30 @@
         </div>
 
         <!-- Amount Input -->
-<div class="amount-input">
-    <span class="dollar-sign">$</span>
-    <input type="text" id="amount" placeholder="0.00" maxlength="12" oninput="formatAmount(this)">
-    <select style="font-size: 1.2em; padding: 5px; margin-left: 10px;">
-        <option value="CAD">CAD</option>
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-    </select>
-</div>
-
-<!-- What's This For? Input -->
-<div style="margin-top: 20px;">
-    <label for="message" style="display: block; font-weight: bold; margin-bottom: 5px;">What's this for?</label>
-    <textarea id="message" rows="3" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
-</div>
-
-<!-- User Agreement Text -->
-<p style="font-size: 0.9em; color: #777; margin-top: 10px;">
-    For more information, please read our <a href="#" style="color: #0070ba;">user agreement</a>.
-</p>
+        <div class="amount-input">
             <span class="dollar-sign">$</span>
             <input type="text" id="amount" placeholder="0.00" maxlength="12" oninput="formatAmount(this)">
+            <select style="font-size: 1.2em; padding: 5px; margin-left: 10px;">
+                <option value="CAD">CAD</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select>
         </div>
 
-        <!-- Next Button -->
-        <button class="next-button" onclick="alert('Success')">Next</button>
+        <!-- What's This For? Input -->
+        <div style="margin-top: 20px;">
+            <label for="message" style="display: block; font-weight: bold; margin-bottom: 5px;">What's this for?</label>
+            <textarea id="message" rows="3" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+        </div>
+
+        <!-- User Agreement Text -->
+        <p style="font-size: 0.9em; color: #777; margin-top: 10px;">
+            For more information, please read our <a href="#" style="color: #0070ba;">user agreement</a>.
+        </p>
+
+        <!-- Buttons -->
+        <button class="next-button" onclick="alert('JK, this is fake! 😂')">Next</button>
+        <button class="cancel-button">Cancel</button>
     </div>
 
     <!-- Footer -->
@@ -244,30 +226,30 @@
         Disclaimer: Do not use for.
     </p>
 
+    <!-- JavaScript for Formatting -->
     <script>
         function formatAmount(input) {
             // Remove any non-numeric characters except for the decimal point
             let value = input.value.replace(/[^0-9.]/g, '');
-    
+
             // Split the value into dollars and cents
             let parts = value.split('.');
             let dollars = parts[0] || '0'; // Default to 0 if no dollars are entered
             let cents = parts[1] || '00'; // Default to 00 if no cents are entered
-    
+
             // Ensure cents are two digits
             if (cents.length === 1) {
                 cents += '0'; // Add a zero if only one digit is entered
             } else if (cents.length > 2) {
                 cents = cents.substring(0, 2); // Truncate to two digits if more are entered
             }
-    
+
             // Combine dollars and cents
             let formattedValue = `${dollars}.${cents}`;
-    
+
             // Update the input field with the formatted value
             input.value = formattedValue;
         }
     </script>
-    
 </body>
 </html>
