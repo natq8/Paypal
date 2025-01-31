@@ -18,14 +18,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #00457c; /*Paypal Blue background */
+            background-color: #253B80; /* Paypal Blue background */
             padding: 10px 20px;
             color: white;
         }
         .top-bar .logo {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: white;
+            width: 100px; /* Adjust size of the logo */
+            height: auto;
             margin-right: 20px;
         }
         .top-bar .menu {
@@ -149,17 +148,29 @@
         }
         /* Footer */
         footer {
-            background-color: #00457c;
+            background-color: #253B80; /* Dark blue background */
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 15px;
             position: fixed;
             bottom: 0;
             width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Space between items */
+        }
+        footer img {
+            width: 80px; /* Adjust size of the logo */
+            height: auto;
         }
         footer a {
             color: white;
             text-decoration: none;
+            font-size: 0.9em;
+        }
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover */
         }
     </style>
 </head>
@@ -168,7 +179,7 @@
     <div class="top-bar">
         <!-- Left Side -->
         <div class="left">
-            <div class="logo">PayPal</div>
+            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-logo-100px.png" alt="PayPal Logo" class="logo">
             <div class="menu">
                 <div>Dashboard</div>
                 <div class="active">Send and Request</div>
@@ -184,7 +195,6 @@
             <div class="logout">LOG OUT</div>
         </div>
     </div>
-
     <!-- Main Content -->
     <div class="container">
         <!-- Bordered Box -->
@@ -193,11 +203,10 @@
             <div class="profile-section">
                 <img src="https://via.placeholder.com/60" alt="Profile Picture">
                 <div class="details">
-                    <div class="name">John Doedr</div>
+                    <div class="name">John Doe</div>
                     <div class="username">@johndoe</div>
                 </div>
             </div>
-
             <!-- Amount Input -->
             <div class="amount-input">
                 <span class="dollar-sign">$</span>
@@ -208,56 +217,49 @@
                     <option value="EUR">EUR</option>
                 </select>
             </div>
-
             <!-- What's This For? Input -->
             <div style="margin-top: 20px;">
                 <label for="message" style="display: block; font-weight: bold; margin-bottom: 5px;">What's this for?</label>
                 <textarea id="message" rows="3" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
             </div>
         </div>
-
         <!-- User Agreement Text -->
         <p style="font-size: 0.9em; color: #777; margin-top: 10px;">
             For more information, please read our <a href="#" style="color: #0070ba;">user agreement</a>.
         </p>
-
         <!-- Buttons -->
         <button class="next-button" onclick="alert('JK, this is fake! 😂')">Next</button>
         <button class="cancel-button">Cancel</button>
     </div>
-
     <!-- Footer -->
     <footer>
-        <p>© 2025 PayPal. All rights reserved.</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-logo-100px.png" alt="PayPal Logo">
+        <a href="#">Help</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Security</a>
+        <a href="#">Fees</a>
     </footer>
-
     <!-- Disclaimer -->
     <p style="font-size: 0.9em; color: #777; text-align: center; margin-top: 20px;">
-        Disclaimer: Do not use for.
+        Disclaimer:
     </p>
-
     <!-- JavaScript for Formatting -->
     <script>
         function formatAmount(input) {
             // Remove any non-numeric characters except for the decimal point
             let value = input.value.replace(/[^0-9.]/g, '');
-
             // Split the value into dollars and cents
             let parts = value.split('.');
             let dollars = parts[0] || '0'; // Default to 0 if no dollars are entered
             let cents = parts[1] || '00'; // Default to 00 if no cents are entered
-
             // Ensure cents are two digits
             if (cents.length === 1) {
                 cents += '0'; // Add a zero if only one digit is entered
             } else if (cents.length > 2) {
                 cents = cents.substring(0, 2); // Truncate to two digits if more are entered
             }
-
             // Combine dollars and cents
             let formattedValue = `${dollars}.${cents}`;
-
             // Update the input field with the formatted value
             input.value = formattedValue;
         }
