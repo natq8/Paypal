@@ -245,23 +245,28 @@
     <!-- JavaScript for Formatting -->
     <script>
         function formatAmount(input) {
-            // Remove any non-numeric characters except for the decimal point
-            let value = input.value.replace(/[^0-9.]/g, '');
-            // Split the value into dollars and cents
+            let value = input.value.replace(/[^0-9.]/g, ''); // Remove non-numeric characters except for the decimal point
+        
+            // Allow only one decimal point
             let parts = value.split('.');
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ','); // Add commas for thousands separators
             let dollars = parts[0] || '0'; // Default to 0 if no dollars are entered
             let cents = parts[1] || '00'; // Default to 00 if no cents are entered
+        
             // Ensure cents are two digits
             if (cents.length === 1) {
                 cents += '0'; // Add a zero if only one digit is entered
             } else if (cents.length > 2) {
                 cents = cents.substring(0, 2); // Truncate to two digits if more are entered
             }
+        
             // Combine dollars and cents
             let formattedValue = `${dollars}.${cents}`;
+            
             // Update the input field with the formatted value
             input.value = formattedValue;
         }
+
     </script>
 </body>
 </html>
