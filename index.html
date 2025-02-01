@@ -231,7 +231,7 @@
             For more information, please read our <a href="#" style="color: #0070ba;">user agreement</a>.
         </p>
         <!-- Buttons -->
-        <button class="next-button" onclick="alert('...')">Next</button>
+        <button id="next-button" style="background-color: grey; border-radius: 20px;" disabled>Next</button>
         <button class="cancel-button">Cancel</button>
     </div>
     <!-- Footer -->
@@ -266,7 +266,18 @@
             // Update the input field with the formatted value
             input.value = formattedValue;
         }
-
+        function toggleNextButton() { //a
+            let amountInput = document.getElementById("amount");
+            let nextButton = document.getElementById("next-button");
+            
+            if (amountInput.value.trim() !== "" && parseFloat(amountInput.value) > 0) {
+                nextButton.style.backgroundColor = "black";
+                nextButton.disabled = false;
+            } else {
+                nextButton.style.backgroundColor = "grey";
+                nextButton.disabled = true;
+            }
+        }
     </script>
 </body>
 </html>
