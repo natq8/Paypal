@@ -266,6 +266,12 @@
             // Update the input field with the formatted value
             input.value = formattedValue;
         }
+        
+        // Trigger the format when the user types
+        document.getElementById("amount").addEventListener("input", function() {
+            formatAmount(this);
+        });
+        
         function toggleNextButton() { //a
             let amountInput = document.getElementById("amount");
             let nextButton = document.getElementById("next-button");
@@ -278,6 +284,8 @@
                 nextButton.disabled = true;
             }
         }
+
+
     </script>
 </body>
 </html>
